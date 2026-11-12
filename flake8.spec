@@ -5,23 +5,23 @@
 Summary:	The modular source code checker: pycodestyle, pyflakes and co.
 Summary(pl.UTF-8):	Modularne narzędzie do sprawdzania kodu źródłowego: pycodestyle, pyflakes itp.
 Name:		flake8
-Version:	7.3.0
+Version:	7.5.0
 Release:	1
 License:	MIT
 Group:		Development/Tools
 #Source0Download: https://pypi.org/simple/flake8/
 Source0:	https://files.pythonhosted.org/packages/source/f/flake8/%{name}-%{version}.tar.gz
-# Source0-md5:	c32beb4d9f5afb1390586468f455471f
+# Source0-md5:	06fa6617ee8f660e29ac7b722d1a3da2
 URL:		https://gitlab.com/pycqa/flake8
-BuildRequires:	python3-modules >= 1:3.9
+BuildRequires:	python3-modules >= 1:3.11
 BuildRequires:	python3-setuptools >= 1:30
 %if %{with tests}
 BuildRequires:	python3-mccabe >= 0.7.0
 BuildRequires:	python3-mccabe < 0.8.0
-BuildRequires:	python3-pycodestyle >= 2.14.0
-BuildRequires:	python3-pycodestyle < 2.15.0
-BuildRequires:	python3-pyflakes >= 3.4.0
-BuildRequires:	python3-pyflakes < 3.5.0
+BuildRequires:	python3-pycodestyle >= 2.15.0
+BuildRequires:	python3-pycodestyle < 2.16.0
+BuildRequires:	python3-pyflakes >= 4.1.0
+BuildRequires:	python3-pyflakes < 4.2.0
 BuildRequires:	python3-pytest
 %endif
 BuildRequires:	rpmbuild(macros) >= 1.714
@@ -47,7 +47,7 @@ dla narzędzi:
 Summary:	The modular source code checker: pycodestyle, pyflakes and co
 Summary(pl.UTF-8):	Modularne narzędzie do sprawdzania kodu źródłowego: pycodestyle, pyflakes itp.
 Group:		Libraries/Python
-Requires:	python3-modules >= 1:3.9
+Requires:	python3-modules >= 1:3.11
 
 %description -n python3-flake8
 The modular source code checker. It is a wrapper around these tools:
@@ -80,7 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 %py3_install
 
 %{__mv} $RPM_BUILD_ROOT%{_bindir}/flake8{,-3}
-ln -s flake-3 $RPM_BUILD_ROOT%{_bindir}/flake8
+ln -s flake8-3 $RPM_BUILD_ROOT%{_bindir}/flake8
 
 %clean
 rm -rf $RPM_BUILD_ROOT
